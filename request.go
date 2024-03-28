@@ -88,13 +88,24 @@ func (req *Request) setOption(k, v string) error {
 }
 
 func (req *Request) setBlockSize(blockSize uint16) error {
-	if blockSize < 8 || blockSize > 65464 {
-		return fmt.Errorf("invalid block size: %d not in 8 <= blkSize <= 65464", blockSize)
-	}
-	req.blockSize = blockSize
-	req.options["blksize"] = strconv.FormatUint(uint64(blockSize), 10)
-	return nil
+    // Output the value of blockSize before assignment
+    fmt.Println("Block size before assignment:", blockSize)
+	
+    if blockSize < 8 || blockSize > 65464 {
+        return fmt.Errorf("invalid block size: %d not in 8 <= blockSize <= 65464", blockSize)
+    }
+    
+    // Assign the value to blockSize
+    req.blockSize = blockSize
+    
+    // Output the value of blockSize after assignment
+    fmt.Println("Block size after assignment:", req.blockSize)
+
+    // Assign the value to req.options["blksize"]
+    req.options["blksize"] = strconv.FormatUint(uint64(blockSize), 10)
+    return nil
 }
+
 
 // Returns the address of the client which initiated the TFTP transfer.
 func (req *Request) ClientAddress() net.UDPAddr {
