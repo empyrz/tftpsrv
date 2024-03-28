@@ -1,10 +1,9 @@
 package tftpsrv
-import "github.com/influxdata/go-syslog/v3"
 import "net"
 import "time"
 import "bytes"
 import "fmt"
-import "log/slog"
+import "github.com/hertz-contrib/logger/slog"
 import "strconv"
 
 // Represents a TFTP request.
