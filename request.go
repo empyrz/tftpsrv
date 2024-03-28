@@ -103,9 +103,6 @@ func (req *Request) setOption(k, v string) error {
 
 func (req *Request) setBlockSize(blockSize uint16) error {
 	// Output the value of blockSize before assignment
-	if err != nil {
-		log.Fatalln(err)
-	}
 	log.Println("Block size before assignment:", blockSize)
 
 	if blockSize < 8 || blockSize > 65464 {
