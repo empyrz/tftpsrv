@@ -93,6 +93,7 @@ func (req *Request) setOption(k, v string) error {
 		}
 		debugLog("Block size called: %d", n)
 		return req.setBlockSize(uint16(n))
+		debugLog("Block size after call: ", req.setBlockSize(uint16(n)))
 
 	default:
 		// not supported
