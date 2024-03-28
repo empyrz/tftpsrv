@@ -3,12 +3,11 @@ import "net"
 import "time"
 import "bytes"
 import "fmt"
-import (
-	"context"
-	"github.com/cloudwego/hertz/pkg/common/hlog"
-	hertzslog "github.com/hertz-contrib/logger/slog"
-)
 import "strconv"
+import (
+    "log"
+    "log/syslog"
+)
 
 // Represents a TFTP request.
 type Request struct {
