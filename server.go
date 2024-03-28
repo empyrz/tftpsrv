@@ -132,7 +132,7 @@ func (s *Server) handleReadRequest(br *bytes.Buffer, addr *net.UDPAddr) error {
 		Filename:   filename,
 		Mode:       mode,
 		server:     s,
-		blockSize:  512,
+		blockSize:  1468,
 		blockNum:   1,
 	}
 
