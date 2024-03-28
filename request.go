@@ -103,7 +103,6 @@ func (req *Request) setOption(k, v string) error {
 
 func (req *Request) setBlockSize(blockSize uint16) error {
 	// Output the value of blockSize before assignment
-	syslogger, err := syslog.New(syslog.LOG_INFO, "syslog_example")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -129,6 +128,7 @@ func (req *Request) setBlockSize(blockSize uint16) error {
 	log.Println("ap conv blksize", req.options["blksize"])
 	return nil
 }
+
 
 // Returns the address of the client which initiated the TFTP transfer.
 func (req *Request) ClientAddress() net.UDPAddr {
