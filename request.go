@@ -102,7 +102,12 @@ func (req *Request) setBlockSize(blockSize uint16) error {
     if blockSize < 8 || blockSize > 65464 {
         return fmt.Errorf("invalid block size: %d not in 8 <= blockSize <= 65464", blockSize)
     }
-    
+
+    // Initialize options map if it's nil
+    if req.options == nil {
+        req.options = make(map[string]string)
+    }
+	
     // Assign the value to blockSize
     req.blockSize = blockSize
     
