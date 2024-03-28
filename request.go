@@ -92,10 +92,13 @@ func (req *Request) setOption(k, v string) error {
 
 func (req *Request) setBlockSize(blockSize uint16) error {
     // Output the value of blockSize before assignment
-    syslogger := syslog.New(syslog.LOG_INFO, "syslog_example")
+    syslogger, err := syslog.New(syslog.LOG_INFO, "syslog_example")
     log.SetOutput(syslogger)
     log.Println("Block size before assignment:", blockSize)
-
+	
+    if err != nil {
+        log.Fatalln(err)
+    }
     if blockSize < 8 || blockSize > 65464 {
         return fmt.Errorf("invalid block size: %d not in 8 <= blockSize <= 65464", blockSize)
     }
