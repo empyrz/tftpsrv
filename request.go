@@ -1,9 +1,10 @@
 package tftpsrv
-
+import "github.com/influxdata/go-syslog/v3"
 import "net"
 import "time"
 import "bytes"
 import "fmt"
+import "log/slog"
 import "strconv"
 
 // Represents a TFTP request.
@@ -89,7 +90,7 @@ func (req *Request) setOption(k, v string) error {
 
 func (req *Request) setBlockSize(blockSize uint16) error {
     // Output the value of blockSize before assignment
-    fmt.Println("Block size before assignment:", blockSize)
+    slog.Info("Block size before assignment:", blockSize)
 	
     if blockSize < 8 || blockSize > 65464 {
         return fmt.Errorf("invalid block size: %d not in 8 <= blockSize <= 65464", blockSize)
@@ -99,7 +100,7 @@ func (req *Request) setBlockSize(blockSize uint16) error {
     req.blockSize = blockSize
     
     // Output the value of blockSize after assignment
-    fmt.Println("Block size after assignment:", req.blockSize)
+    slog.Info("Block size after assignment:", req.blockSize)
 
     // Assign the value to req.options["blksize"]
     req.options["blksize"] = strconv.FormatUint(uint64(blockSize), 10)
