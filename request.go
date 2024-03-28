@@ -163,7 +163,7 @@ func (req *Request) write(data []byte) (int, error) {
 	if err != nil {
 		return 0, err
 	}
-
+        log.Println("data", L)
 	return L, nil
 }
 
