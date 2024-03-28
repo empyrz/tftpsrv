@@ -109,9 +109,9 @@ func (req *Request) setBlockSize(blockSize uint16) error {
     // Output the value of blockSize after assignment
     log.Println("Block size after assignment:", req.blockSize)
     // Assign the value to req.options["blksize"]
-    log.Println("av conv blksize", req.options["blksize")
+    log.Println("av conv blksize", req.options["blksize"])
     req.options["blksize"] = strconv.FormatUint(uint64(blockSize), 10)
-    log.Println("ap conv blksize", req.options["blksize")
+    log.Println("ap conv blksize", req.options["blksize"])
     return nil
 }
 
