@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"log"
-	"log/syslog"
 	"net"
 	"strconv"
 	"time"
