@@ -21,6 +21,13 @@ type Request struct {
 	options    map[string]string
 }
 
+### initialize the options map
+func NewRequest() *Request {
+    return &Request{
+        options: make(map[string]string),
+    }
+}
+
 func (req *Request) sendAndWaitForAck(txFunc func() error, blockNum uint16) error {
 	t := time.Now()
 
