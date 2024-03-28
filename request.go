@@ -81,7 +81,7 @@ func (req *Request) setOption(k, v string) error {
 		if err != nil {
 			return err
 		}
-                log.Println("Block size called:", req.setBlockSize(uint16(n))
+                log.Println("Block size called:", req.setBlockSize(uint16(n)))
 		return req.setBlockSize(uint16(n))
 
 	default:
